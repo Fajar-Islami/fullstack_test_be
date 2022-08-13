@@ -1,0 +1,31 @@
+{
+    "kind": "collectionType",
+    "collectionName": "order_details",
+    "info": {
+        "singularName": "order-detail",
+        "pluralName": "order-details",
+        "displayName": "order_detail"
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "order_id": {
+            "type": "relation",
+            "relation": "manyToOne",
+            "target": "api::order.order",
+            "inversedBy": "order_details"
+        },
+        "travel_package_id": {
+            "type": "relation",
+            "relation": "oneToOne",
+            "target": "api::travel-package.travel-package",
+            "inversedBy": "order_detail_id"
+        },
+        "price": {
+            "type": "biginteger",
+            "required": true
+        }
+    }
+}
