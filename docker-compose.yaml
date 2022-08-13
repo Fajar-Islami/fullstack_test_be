@@ -1,0 +1,32 @@
+services:
+  pgsql:
+    image: postgres:14.2-alpine
+    container_name: postgres_insignia
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_USER=admin
+      - POSTGRES_DB=dbinsignia
+    networks:
+      - postgres_network
+    volumes:
+      - insignia_volume:/var/lib/postgresql/data
+
+  adminer:
+    image: adminer:latest
+    container_name: postgres_adminer
+    ports:
+      - '9191:9191'
+    environment:
+      ADMINER_DESIGN: pepa-linha
+    networks:
+      - 'postgres_network'
+    depends_on:
+      - pgsql
+
+networks:
+  postgres_network: {}
+
+volumes:
+  insignia_volume: {}
