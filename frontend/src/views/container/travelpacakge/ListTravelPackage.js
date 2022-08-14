@@ -36,7 +36,7 @@ const TravelPackageList = () => {
         }}
       >
         <Container maxWidth={false}>
-          <Toolbar title="Travel Package" />
+          <Toolbar title="Travel Package" route="/travelpackages/add" />
           <Box sx={{ mt: 3 }}>
             <TravelPacakgeListResults datas={customers} openDeleteModal={handleOpenDeleteModal} />
           </Box>

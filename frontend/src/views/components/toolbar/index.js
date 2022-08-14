@@ -11,7 +11,7 @@ import {
 import { Search as SearchIcon } from "@icons/search";
 import { useRouter } from "next/router";
 
-const Toolbar = (props) => {
+const Toolbar = ({ route, ...props }) => {
   const router = useRouter();
 
   return (
@@ -29,7 +29,7 @@ const Toolbar = (props) => {
           {props.title}
         </Typography>
         <Box sx={{ m: 1 }}>
-          <Button color="primary" variant="contained" onClick={() => router.push("/customers/add")}>
+          <Button color="primary" variant="contained" onClick={() => router.push(route)}>
             Add {props.title}
           </Button>
         </Box>

@@ -21,7 +21,7 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::travel-package.travel-package",
-      "inversedBy": "order_detail_id"
+      "mappedBy": "order_detail_id"
     },
     "price": {
       "type": "biginteger",

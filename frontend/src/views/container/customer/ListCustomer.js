@@ -36,7 +36,7 @@ const ListCustomer = () => {
         }}
       >
         <Container maxWidth={false}>
-          <Toolbar title="Customer" />
+          <Toolbar title="Customer" route="/customers/add" />
           <Box sx={{ mt: 3 }}>
             <CustomerListResults customers={customers} openDeleteModal={handleOpenDeleteModal} />
           </Box>

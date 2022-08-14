@@ -13,15 +13,7 @@ import {
 import { useFormik } from "formik";
 import { useEffect } from "react";
 
-export const TravelPackageForm = ({
-  data,
-  handleFormSubmit,
-  schema,
-  buttonText,
-  backPath,
-  disabled,
-  ...props
-}) => {
+export const OrdersForm = ({ data, handleFormSubmit, schema, buttonText, backPath, ...props }) => {
   const { values, errors, touched, handleChange, handleBlur, handleSubmit, setValues } = useFormik({
     initialValues: data,
     validationSchema: schema,
@@ -31,10 +23,9 @@ export const TravelPackageForm = ({
   useEffect(() => {
     if (data) {
       setValues({
-        name: data.name,
-        description: data.description,
-        price: data.price,
-        image: data.image,
+        customer_id: data.customer_id,
+        total_price: data.total_price,
+        order_detail: data.order_detail,
       });
     }
   }, [data, setValues]);
@@ -48,7 +39,6 @@ export const TravelPackageForm = ({
           <Grid container spacing={3}>
             <Grid item md={6} xs={12}>
               <TextField
-                disabled={disabled}
                 fullWidth
                 label="Nama"
                 name="name"
@@ -63,42 +53,41 @@ export const TravelPackageForm = ({
             </Grid>
             <Grid item md={6} xs={12}>
               <TextField
-                disabled={disabled}
                 fullWidth
-                label="Harga"
-                name="price"
+                label="Order Detail"
+                name="order_detail"
                 onChange={handleChange}
-                value={values.price}
+                required
+                value={values.order_detail}
                 variant="outlined"
                 onBlur={handleBlur}
-                error={touched.price && errors.price}
-                helperText={touched.price && errors.price}
+                error={touched.order_detail && errors.order_detail}
+                helperText={touched.order_detail && errors.order_detail}
               />
             </Grid>
             <Grid item md={6} xs={12}>
               <TextField
-                multiline
-                rows={4}
-                disabled={disabled}
                 fullWidth
-                label="Deskripsi"
-                name="description"
+                label="Total Harga"
+                name="total_price"
                 onChange={handleChange}
-                required
-                value={values.description}
+                value={values.total_price}
                 variant="outlined"
                 onBlur={handleBlur}
-                error={touched.description && errors.description}
-                helperText={touched.description && errors.description}
+                error={touched.total_price && errors.total_price}
+                helperText={touched.total_price && errors.total_price}
               />
             </Grid>
           </Grid>
         </CardContent>
         <Divider />
         <Stack direction="row" spacing={2} padding={2} justifyContent="flex-end">
-          <Button color="primary" variant="contained" type="submit">
-            {buttonText}
-          </Button>
+          {buttonText != "" && (
+            <Button color="primary" variant="contained" type="submit">
+              {buttonText}
+            </Button>
+          )}
+
           <Button color="primary" variant="contained" onClick={backPath}>
             Kembali
           </Button>
@@ -108,7 +97,7 @@ export const TravelPackageForm = ({
   );
 };
 
-TravelPackageForm.propTypes = {
+OrdersForm.propTypes = {
   data: PropTypes.object,
   schema: PropTypes.object,
   buttonText: PropTypes.string,

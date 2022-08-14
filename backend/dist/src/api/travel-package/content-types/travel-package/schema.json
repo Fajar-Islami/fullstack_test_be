@@ -4,7 +4,8 @@
     "info": {
         "singularName": "travel-package",
         "pluralName": "travel-packages",
-        "displayName": "travel_package"
+        "displayName": "travel_package",
+        "description": ""
     },
     "options": {
         "draftAndPublish": false
@@ -26,18 +27,14 @@
             "required": true,
             "min": "1"
         },
-        "image_travel": {
-            "allowedTypes": [
-                "images"
-            ],
-            "type": "media",
-            "multiple": true
-        },
         "order_detail_id": {
             "type": "relation",
             "relation": "oneToOne",
             "target": "api::order-detail.order-detail",
             "inversedBy": "travel_package_id"
+        },
+        "image_base": {
+            "type": "text"
         }
     }
 }
