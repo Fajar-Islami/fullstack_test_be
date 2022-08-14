@@ -13,7 +13,7 @@ import {
 import { useFormik } from "formik";
 import { useEffect } from "react";
 
-export const CustomerForm = ({
+export const TravelPackageForm = ({
   data,
   handleFormSubmit,
   schema,
@@ -31,9 +31,9 @@ export const CustomerForm = ({
     if (data) {
       setValues({
         name: data.name,
-        email: data.email,
-        phone: data.phone,
-        address: data.address,
+        description: data.description,
+        price: data.price,
+        image: data.image,
       });
     }
   }, [data, setValues]);
@@ -41,7 +41,7 @@ export const CustomerForm = ({
   return (
     <form autoComplete="off" onSubmit={handleSubmit} {...props}>
       <Card>
-        <CardHeader subheader="Informasi Customer dapat dirubah" title="Data Customer" />
+        <CardHeader subheader="Informasi paket travel dapat dirubah" title="Data Customer" />
         <Divider />
         <CardContent>
           <Grid container spacing={3}>
@@ -62,28 +62,14 @@ export const CustomerForm = ({
             <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
-                label="Alamat Email"
-                name="email"
+                label="Harga"
+                name="price"
                 onChange={handleChange}
-                required
-                value={values.email}
+                value={values.price}
                 variant="outlined"
                 onBlur={handleBlur}
-                error={touched.email && errors.email}
-                helperText={touched.email && errors.email}
-              />
-            </Grid>
-            <Grid item md={6} xs={12}>
-              <TextField
-                fullWidth
-                label="Nomor HP"
-                name="phone"
-                onChange={handleChange}
-                value={values.phone}
-                variant="outlined"
-                onBlur={handleBlur}
-                error={touched.phone && errors.phone}
-                helperText={touched.phone && errors.phone}
+                error={touched.price && errors.price}
+                helperText={touched.price && errors.price}
               />
             </Grid>
             <Grid item md={6} xs={12}>
@@ -91,15 +77,15 @@ export const CustomerForm = ({
                 multiline
                 rows={4}
                 fullWidth
-                label="Alamat"
-                name="address"
+                label="Deskripsi"
+                name="description"
                 onChange={handleChange}
                 required
-                value={values.address}
+                value={values.description}
                 variant="outlined"
                 onBlur={handleBlur}
-                error={touched.address && errors.address}
-                helperText={touched.address && errors.address}
+                error={touched.description && errors.description}
+                helperText={touched.description && errors.description}
               />
             </Grid>
           </Grid>
@@ -118,7 +104,7 @@ export const CustomerForm = ({
   );
 };
 
-CustomerForm.propTypes = {
+TravelPackageForm.propTypes = {
   data: PropTypes.object,
   schema: PropTypes.object,
   buttonText: PropTypes.string,

@@ -1,10 +1,10 @@
 import { Box, Container } from "@mui/material";
 import Toolbar from "@components/toolbar";
-import { CustomerListResults, DeleteDialog } from "@template/customer";
+import { TravelPacakgeListResults, DeleteDialog } from "@template/travelpackage";
 import { customers } from "@mocks/customers";
 import { useState } from "react";
 
-const CustomersList = () => {
+const TravelPackageList = () => {
   const [deleteModal, setDeleteModal] = useState(false);
 
   const handleOpenDeleteModal = () => {
@@ -36,9 +36,9 @@ const CustomersList = () => {
         }}
       >
         <Container maxWidth={false}>
-          <Toolbar title="Customer" />
+          <Toolbar title="Travel Package" />
           <Box sx={{ mt: 3 }}>
-            <CustomerListResults customers={customers} openDeleteModal={handleOpenDeleteModal} />
+            <TravelPacakgeListResults datas={customers} openDeleteModal={handleOpenDeleteModal} />
           </Box>
         </Container>
       </Box>
@@ -46,4 +46,4 @@ const CustomersList = () => {
   );
 };
 
-export default CustomersList;
+export default TravelPackageList;

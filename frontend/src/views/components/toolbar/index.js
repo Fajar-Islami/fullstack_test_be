@@ -49,7 +49,7 @@ const Toolbar = (props) => {
                     </InputAdornment>
                   ),
                 }}
-                placeholder="Search customer"
+                placeholder={`Search ${props.title}`}
                 variant="outlined"
               />
             </Box>

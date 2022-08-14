@@ -5,16 +5,16 @@ import * as yup from "yup";
 import constant from "@common/constant";
 import { useRouter } from "next/router";
 
-const CustomerDetail = () => {
+const AddCustomer = () => {
   const router = useRouter();
   const initData = {
-    name: "Fajar",
-    email: "fajar@mail.com",
-    phone: "08914222",
-    address: "Jakarta",
+    name: "",
+    email: "",
+    phone: "",
+    address: "",
   };
   const handleAdd = (values) => {
-    console.log("Customer Updated");
+    console.log("Customer Created");
     console.log(values);
   };
 
@@ -28,12 +28,12 @@ const CustomerDetail = () => {
     >
       <Container maxWidth="lg">
         <Typography sx={{ mb: 3 }} variant="h4">
-          Update Customer
+          Add Customer
         </Typography>
         <CustomerForm
           data={initData}
           handleFormSubmit={handleAdd}
-          schema={addProductSchema}
+          schema={productSchema}
           buttonText="Tambah Customer"
           backPath={() => router.push("/customers")}
         />
@@ -42,9 +42,9 @@ const CustomerDetail = () => {
   );
 };
 
-CustomerDetail.getLayout = (page) => <DashboardLayout>{page}</DashboardLayout>;
+AddCustomer.getLayout = (page) => <DashboardLayout>{page}</DashboardLayout>;
 
-const addProductSchema = yup.object().shape({
+const productSchema = yup.object().shape({
   name: yup.string().required("${path} is required"),
   email: yup.string().email("invalid email").required("${path} is required"),
   phone: yup
@@ -54,4 +54,4 @@ const addProductSchema = yup.object().shape({
   address: yup.string().required("${path} is required"),
 });
 
-export default CustomerDetail;
+export default AddCustomer;
