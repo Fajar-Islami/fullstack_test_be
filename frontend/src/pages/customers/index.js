@@ -2,7 +2,7 @@ import Head from "next/head";
 import { DashboardLayout } from "@components/dashboard-layout";
 import dynamic from "next/dynamic";
 
-const CustomerList = dynamic(() => import("@container/CustomerList"));
+const CustomerList = dynamic(() => import("@container/customer/CustomerList"));
 
 const Customers = () => (
   <>

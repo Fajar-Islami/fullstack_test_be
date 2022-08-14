@@ -8,6 +8,8 @@
       "@mocks/*": ["__mocks__/*"],
       "@utils/*": ["utils/*"],
       "@icons/*": ["icons/*"],
+      "@common/*": ["common/*"],
+      "@api/*": ["pages/api/*"],
 
       "@data/*": ["data/*"],
       "@contexts/*": ["contexts/*"],
@@ -16,9 +18,7 @@
       "@reducers/*": ["reducers/*"],
       "@generated/*": ["generated/*"],
       "@entity/*": ["entity/*"],
-      "@service/*": ["service/*"],
-      "@common/*": ["common/*"],
-      "@api/*": ["pages/api/*"]
+      "@service/*": ["service/*"]
     }
   },
   "exclude": ["node_modules"],

@@ -17,8 +17,10 @@ import {
   Typography,
 } from "@mui/material";
 import { Delete as DeleteIcon } from "@mui/icons-material";
+import { useRouter } from "next/router";
 
 export const CustomerListResults = ({ customers, openDeleteModal, ...rest }) => {
+  const router = useRouter();
   const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(0);
 
@@ -39,10 +41,10 @@ export const CustomerListResults = ({ customers, openDeleteModal, ...rest }) => 
               <TableRow>
                 <TableCell>Name</TableCell>
                 <TableCell>Email</TableCell>
-                <TableCell>Location</TableCell>
-                <TableCell>Phone</TableCell>
-                <TableCell>Registration date</TableCell>
-                <TableCell align="center">Action</TableCell>
+                <TableCell>Nomor HP</TableCell>
+                <TableCell>Alamat</TableCell>
+                <TableCell>Tanggal Terdaftaar</TableCell>
+                <TableCell align="center">Aksi</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -60,8 +62,13 @@ export const CustomerListResults = ({ customers, openDeleteModal, ...rest }) => 
                   <TableCell>{customer.phone}</TableCell>
                   <TableCell>{format(customer.createdAt, "dd/MM/yyyy")}</TableCell>
                   <TableCell>
-                    <Stack direction="row" spacing={2} p={1}>
-                      <Button size="small" variant="outlined" startIcon={<DeleteIcon />}>
+                    <Stack direction="column" spacing={2} p={1}>
+                      <Button
+                        size="small"
+                        variant="outlined"
+                        startIcon={<DeleteIcon />}
+                        onClick={() => router.push("/customers/1")}
+                      >
                         Edit
                       </Button>
                       <Button
