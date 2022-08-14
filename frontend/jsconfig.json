@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "baseUrl": "src",
+    "paths": {
+      "@component/*": ["views/components/*"],
+      "@template/*": ["views/template/*"],
+      "@container/*": ["views/container/*"],
+      "@mocks/*": ["__mocks__/*"],
+      "@utils/*": ["utils/*"],
+      "@icons/*": ["icons/*"],
+
+      "@data/*": ["data/*"],
+      "@contexts/*": ["contexts/*"],
+      "@hook/*": ["hooks/*"],
+      "@interfaces/*": ["interfaces/*"],
+      "@reducers/*": ["reducers/*"],
+      "@generated/*": ["generated/*"],
+      "@entity/*": ["entity/*"],
+      "@service/*": ["service/*"],
+      "@common/*": ["common/*"],
+      "@api/*": ["pages/api/*"]
+    }
+  },
+  "exclude": ["node_modules"],
+  "include": ["src"]
+}
