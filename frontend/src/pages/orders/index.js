@@ -1,8 +1,8 @@
 import Head from "next/head";
 import { Box, Container } from "@mui/material";
-import { CustomerListResults } from "@component/customer/customer-list-results";
-import { CustomerListToolbar } from "@component/customer/customer-list-toolbar";
-import { DashboardLayout } from "@component/dashboard-layout";
+import { CustomerListResults } from "@components/customer/customer-list-results";
+import { CustomerListToolbar } from "@components/customer/customer-list-toolbar";
+import { DashboardLayout } from "@components/dashboard-layout";
 import { customers } from "@mocks/customers";
 
 const Orders = () => (

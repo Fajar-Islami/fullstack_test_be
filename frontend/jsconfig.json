@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": "src",
     "paths": {
-      "@component/*": ["views/components/*"],
+      "@components/*": ["views/components/*"],
       "@template/*": ["views/template/*"],
       "@container/*": ["views/container/*"],
       "@mocks/*": ["__mocks__/*"],

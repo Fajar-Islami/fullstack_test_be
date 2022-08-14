@@ -40,8 +40,8 @@ export const CustomerListResults = ({ customers, ...rest }) => {
               <TableRow>
                 <TableCell>Name</TableCell>
                 <TableCell>Email</TableCell>
+                <TableCell>Location</TableCell>
                 <TableCell>Phone</TableCell>
-                <TableCell>Address</TableCell>
                 <TableCell>Registration date</TableCell>
                 <TableCell align="center">Action</TableCell>
               </TableRow>
