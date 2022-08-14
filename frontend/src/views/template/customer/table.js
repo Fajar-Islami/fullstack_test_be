@@ -16,10 +16,9 @@ import {
   TableRow,
   Typography,
 } from "@mui/material";
-import { getInitials } from "@utils/get-initials";
 import { Delete as DeleteIcon } from "@mui/icons-material";
 
-export const CustomerListResults = ({ customers, ...rest }) => {
+export const CustomerListResults = ({ customers, openDeleteModal, ...rest }) => {
   const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(0);
 
@@ -70,6 +69,7 @@ export const CustomerListResults = ({ customers, ...rest }) => {
                         color="error"
                         variant="outlined"
                         startIcon={<DeleteIcon />}
+                        onClick={openDeleteModal}
                       >
                         Delete
                       </Button>
@@ -96,4 +96,5 @@ export const CustomerListResults = ({ customers, ...rest }) => {
 
 CustomerListResults.propTypes = {
   customers: PropTypes.array.isRequired,
+  openDeleteModal: PropTypes.func.isRequired,
 };
